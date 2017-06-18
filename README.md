@@ -1,3 +1,3 @@
-# AutoSploit [![Awesome](http://www.losandes.com.ar/images/loading-img.gif)]
+# AutoSploit [![Awesome](http://www.progracol.com/recursos/img/loading.gif)]
 > Autosploit = Automating Metasploit Modules.
 
