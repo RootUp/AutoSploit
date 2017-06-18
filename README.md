@@ -1,2 +1,3 @@
 # AutoSploit
-Autosploit = Automating Metasploit Modules.
+> Autosploit = Automating Metasploit Modules.
+
