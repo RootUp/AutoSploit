@@ -36,3 +36,8 @@ The AutoSploit project and all individual scripts are under GPL.
 ## ShoutOut
 
 Many thanks to [Metasploit Team](https://github.com/rapid7) for making AutoSploit possible.
+
+
+## ToDo
+
+Handle Exeception,Add banner,Add more modules from MSF,Optimize Code.
