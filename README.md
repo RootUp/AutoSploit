@@ -1,4 +1,4 @@
-[![Version](https://img.shields.io/badge/AutoSploit-2.0-brightgreen.svg?maxAge=259200)]() [![Stage](https://img.shields.io/badge/Release-Beta-brightgreen.svg)]() [![Build](https://img.shields.io/badge/Supported_OS-Linux-orange.svg)]()
+[![Version](https://img.shields.io/badge/AutoSploit-2.0-brightgreen.svg?maxAge=259200)]() [![Stage](https://img.shields.io/badge/Release-Beta-brightgreen.svg)]() [![Build](https://img.shields.io/badge/Supported_OS-Linux-orange.svg)]() [![AUR](https://img.shields.io/aur/license/yaourt.svg)]()
 > Autosploit = Automating Metasploit Modules.
 
 
@@ -24,8 +24,7 @@
 #### `WMAP`
 
 ## License
-The AutoSploit project and all individual scripts are under the BSD 3-Clause license.
-
+The AutoSploit project and all individual scripts are under GPL.
 ## Usage
 
 > bash AutoSploit.sh IP --> For Kali Linux
