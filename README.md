@@ -30,4 +30,4 @@ The AutoSploit project and all individual scripts are under the [BSD 3-Clause li
 
 > bash AutoSploit.sh IP --> For Kali Linux.
 
-> sudo bash AutoSploit.sh IP --> For Ubuuntu.
+> sudo bash AutoSploit.sh IP --> For Ubuntu.
