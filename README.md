@@ -32,6 +32,6 @@ The AutoSploit project and all individual scripts are under the [BSD 3-Clause li
 
 > sudo bash AutoSploit.sh IP --> For Ubuntu
 
-##ShoutOut
+## ShoutOut
 
 To the Metasploit Team.
