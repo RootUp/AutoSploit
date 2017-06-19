@@ -34,4 +34,4 @@ The AutoSploit project and all individual scripts are under the [BSD 3-Clause li
 
 ## ShoutOut
 
-To the Metasploit Team.
+Many thanks to Metasploit Team, for making AutoSploit possible.
