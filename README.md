@@ -40,4 +40,4 @@ Many thanks to [Metasploit Team](https://github.com/rapid7) for making AutoSploi
 
 ## ToDo
 
-Handle Exeception,Add banner,Add more modules from MSF,Optimize Code.
+Handle Exeception, Add banner, Add more modules from MSF, Optimize Code.
