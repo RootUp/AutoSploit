@@ -24,7 +24,7 @@
 #### `WMAP`
 
 ## License
-The AutoSploit project and all individual scripts are under the [BSD 3-Clause license]
+The AutoSploit project and all individual scripts are under the BSD 3-Clause license.
 
 ## Usage
 
