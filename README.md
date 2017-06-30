@@ -20,6 +20,7 @@
 #### `CVE-2009-3843`
 #### `SMB Session Pipe Auditor`
 #### `Gathering GPP Saved Passwords`
+#### `Checks for multiple auxiliary modules`
 
 **Execute MSF Modules on a target machine if application up an running.**
 
@@ -35,7 +36,7 @@ The AutoSploit project and all individual scripts are under GPL.
 
 ## ShoutOut
 
-Many thanks to [Metasploit Team](https://github.com/rapid7) for making AutoSploit possible.
+Many thanks to NMAP and [Metasploit Team](https://github.com/rapid7) for making AutoSploit possible.
 
 
 ## ToDo
