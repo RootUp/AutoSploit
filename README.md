@@ -38,6 +38,11 @@ The AutoSploit project and all individual scripts are under GPL.
 
 Many thanks to NMAP and [Metasploit Team](https://github.com/rapid7) for making AutoSploit possible.
 
+## Special Thanks 
+@hardw00t
+@virgil_cj 
+Suresh Nadar and @KshitijTandel3
+
 
 ## ToDo
 
